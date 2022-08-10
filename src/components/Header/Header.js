@@ -8,9 +8,21 @@ function Header() {
     const [open, setOpen] = useState(false);
     const navigate = useNavigate();
     const { logOut, user } = useAuth();
+    const [changeHeader, setChangeHeader] = useState(false);
+
+    //header change function 
+    const onChangeHeader = () => {
+        if (window.scrollY >= 50) {
+            setChangeHeader(true)
+        } else {
+            setChangeHeader(false)
+        }
+    }
+    //change header by scrolling
+    window.addEventListener('scroll', onChangeHeader);
 
     return (
-        <header className="w-full fixed top-0 left-0">
+        <header className={changeHeader ? "w-full fixed top-0 left-0 shadow-md z-50" : "w-full fixed top-0 left-0 z-50"}>
             <nav className="md:flex items-center justify-between bg-white py-4 xl:px-52 md:px-20 px-7">
                 <div>
                     <a className="cursor-pointer" href="/">
@@ -30,27 +42,26 @@ function Header() {
                 >
                     <li className="md:ml-8 text-lg md:my-0 my-7">
                         <a
-                            className="relative text-gray-600 hover:text-rose-600 duration-500"
+                            className="relative hover:text-rose-600 duration-500"
                             href="/cart"
                         >
                             <span className="bg-primary w-4 h-4 p-2.5 text-xs rounded-full flex items-center justify-center text-white poppins absolute md:-right-3 md:-top-2 left-5 -top-1.5">
                                 5
                             </span>
-                            <ShoppingCartIcon className="h-5 w-5" />
+                            <ShoppingCartIcon className="h-5 w-5 text-slate-900" />
                         </a>
                     </li>
 
                     <li className="md:ml-10 text-lg md:my-0 my-7">
                         {user?.email ? (
-                            <a
-                                className="text-slate-900 hover:text-rose-600 duration-500"
-                                href="/checkout"
+                            <span
+                                className="text-slate-900 font-medium hover:text-rose-600 duration-500"
                             >
                                 {user?.displayName}
-                            </a>
+                            </span>
                         ) : (
                             <a
-                                className="text-slate-900 hover:text-rose-600 duration-500"
+                                className="text-slate-900 font-medium hover:text-rose-600 duration-500"
                                 href="/login"
                             >
                                 Login
@@ -62,7 +73,7 @@ function Header() {
                         <button
                             type="submit"
                             onClick={() => navigate('/signup')}
-                            className="bg-primary md:ml-8 px-6 py-3 text-white poppins rounded-full focus:outline-none  transform transition duration-700 hover:scale-105"
+                            className="bg-primary font-medium md:ml-8 px-6 py-3 text-white poppins rounded-full focus:outline-none  transform transition duration-700 hover:scale-105"
                         >
                             Sign Up
                         </button>
@@ -70,7 +81,7 @@ function Header() {
                         <button
                             type="submit"
                             onClick={logOut}
-                            className="bg-primary md:ml-8 px-6 py-3 text-white poppins rounded-full focus:outline-none  transform transition duration-700 hover:scale-105"
+                            className="bg-primary font-medium md:ml-8 px-6 py-3 text-white poppins rounded-full focus:outline-none  transform transition duration-700 hover:scale-105"
                         >
                             Log Out
                         </button>
