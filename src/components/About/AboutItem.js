@@ -36,9 +36,9 @@ const AboutItem = ({ id, image, icon, title, description}) => {
                         </p>
                         {
                             descriptionCollapse? 
-                            <span onClick={showLess} className="flex items-center text-blue-500 cursor-pointer">See Less <ArrowCircleLeftIcon className="text-green-500 h-6 w-auto ml-3"/></span>
+                            <span onClick={showLess} className="flex items-center text-blue-500 font-medium cursor-pointer mt-3">See Less <ArrowCircleLeftIcon className="text-green-500 h-6 w-auto ml-3"/></span>
                             :
-                            <span onClick={showMore} className="flex items-center text-blue-500 collapse-btn">See More
+                            <span onClick={showMore} className="flex items-center text-blue-500 cursor-pointer font-medium collapse-btn mt-3">See More
                             <ArrowCircleRightIcon className="text-green-500 h-6 w-auto ml-3"/></span>
                         }
                     </div>
