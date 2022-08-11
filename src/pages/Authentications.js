@@ -16,13 +16,13 @@ function Authentications() {
     } = useForm();
 
     const { signUp, login } = useAuth();
-    // const { createUser, login } = useFirebase();
+
     const navigate = useNavigate();
 
     useEffect(() => {
         if (window.location.pathname === '/login') setNewUser(false);
         else if (window.location.pathname === '/signup') setNewUser(true);
-    }, []);
+    }, [navigate]);
 
     const onsubmit = (data) => {
         const { name, email, password } = data;

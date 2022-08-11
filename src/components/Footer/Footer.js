@@ -3,7 +3,7 @@ import logo from '../../assets/images/logo.png';
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 
 const Footer = () => {
-    
+
     return (
         <footer className="bg-gray-800 py-12">
             <div className="max-w-screen-xl mx-auto px-6">
@@ -15,7 +15,7 @@ const Footer = () => {
                     {/* footer link widgets  */}
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'>
                         <div className="footer-widgets">
-                            <ul className="text-white">
+                            <ul className="text-white space-y-2">
                                 <li className='hover:text-rose-600 transition duration-500'><a href="/about">About Online Food</a></li>
                                 <li className='hover:text-rose-600 transition duration-500'><a href="/blog">Read Our Blog</a></li>
                                 <li className='hover:text-rose-600 transition duration-500'><a href="/login">Sign up href deliver</a></li>
@@ -23,7 +23,7 @@ const Footer = () => {
                             </ul>
                         </div>
                         <div className="footer-widgets">
-                            <ul className=" text-white">
+                            <ul className=" text-white space-y-2">
                                 <li className='hover:text-rose-600 transition duration-500'><a href="/help">Get Help</a></li>
                                 <li className='hover:text-rose-600 transition duration-500'><a href="/faq">Read FAQ</a></li>
                                 <li className='hover:text-rose-600 transition duration-500'><a href="/cities">View All Cities</a></li>
@@ -33,7 +33,7 @@ const Footer = () => {
 
                         {/* footer social link widgets  */}
                         <div className="footer-widgets">
-                            <ul className="flex lg:block justify-between text-white">
+                            <ul className="flex lg:block justify-between text-white lg:space-y-2">
                                 <li className='hover:text-rose-600 transition duration-500'><a className='flex items-center gap-2' href="/facebook"><FaFacebook/> <span className='hidden lg:block'>Facebook</span></a></li>
                                 <li className='hover:text-rose-600 transition duration-500'><a className='flex items-center gap-2' href="/instagram"><FaInstagram/> <span className='hidden lg:block'>Instagram</span></a></li>
                                 <li className='hover:text-rose-600 transition duration-500'><a className='flex items-center gap-2' href="/twitter"><FaTwitter/> <span className='hidden lg:block'>Twitter</span></a></li>

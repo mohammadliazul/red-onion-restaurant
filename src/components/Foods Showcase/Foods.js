@@ -47,6 +47,17 @@ const Foods = () => {
                     loading ? <SkeletonLoader key={item.id} /> : <FoodItem key={item.id} {...item}  />
                 ))}
             </div>
+
+            <div className="text-center text-white mt-14">
+                    {/* {
+                        props.cart.length ? 
+                        <a href="/checkout">
+                            <button disabled className="rounded bg-rose-600 px-6 py-2 cursor-pointer">Checkout Your Food</button>
+                        </a>
+                        : */}
+                        <button disabled className="rounded bg-gray-400 px-4 py-2 cursor-not-allowed">Checkout Your Food</button>
+                    {/* } */}
+            </div>
         </section>
     );
 };
