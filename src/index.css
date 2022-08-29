@@ -8,32 +8,41 @@
     @apply block font-medium text-xl text-gray-800 py-2 px-4 cursor-pointer;
   }
   .active {
-    @apply text-rose-600 px-4 after:content-[''] after:w-[75%] after:bg-rose-600 after:h-[3px] after:block after:my-0 after:mx-auto cursor-pointer;
+    @apply text-primary px-4 after:content-[''] after:w-[75%] after:bg-rose-600 after:h-[3px] after:block after:my-0 after:mx-auto cursor-pointer;
   }
 }
 
+/* import google font: poppins */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,700&display=swap");
 
-body {
-  margin: 0;
-  font-family: "Poppins", sans-serif;
+* {
   box-sizing: border-box;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.orderContainer::-webkit-scrollbar,
+/* remove body scrollbar */
 body::-webkit-scrollbar {
   display: none;
 }
 
+/* home banner background image */
 .banner {
   background-image: url("./assets/images/bannerbackground.png");
-  background-size: cover;
+  /* background-size: cover; */
   background-repeat: no-repeat;
   background-position: center center;
   height: 85vh;
 }
+
+/* signup and notfound page background image */
 .signup-bg {
   background-image: url("./assets/images/signup-bg.png");
   background-repeat: no-repeat;
@@ -41,6 +50,8 @@ body::-webkit-scrollbar {
   background-position: bottom;
   height: 100vh;
 }
+
+/* font */
 .poppins {
   font-family: "Poppins", sans-serif;
 }
@@ -70,11 +81,24 @@ body::-webkit-scrollbar {
   background-color: #f5f5f5;
 }
 
-/* Glassmorphism card effect */
-.glass {
-  backdrop-filter: blur(14px) saturate(180%);
-  -webkit-backdrop-filter: blur(14px) saturate(180%);
-  background-color: rgba(255, 255, 255, 0.57);
-  border-radius: 12px;
-  border: 1px solid rgba(209, 213, 219, 0.3);
+/* order container scrollbar-style */
+.scrollbar-style {
+  overflow-y: auto;
+}
+
+.scrollbar-style::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #f5f5f5;
+  border-radius: 5px;
+}
+
+.scrollbar-style::-webkit-scrollbar {
+  width: 6px;
+  background-color: #f5f5f5;
+}
+
+.scrollbar-style::-webkit-scrollbar-thumb {
+  background-color: #22c55e;
+  border-radius: 5px;
+  /* border: 2px solid #555555; */
 }

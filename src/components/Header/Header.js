@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import logo from '../../assets/images/logo2.png';
 import useAuth from '../../hooks/useAuth';
 
-function Header() {
+function Header({cart,hideAll,setShowCheckout}) {
     const [open, setOpen] = useState(false);
     const navigate = useNavigate();
     const { logOut, user } = useAuth();
@@ -18,12 +18,13 @@ function Header() {
             setChangeHeader(false)
         }
     }
+
     //change header by scrolling
     window.addEventListener('scroll', onChangeHeader);
 
     return (
-        <header className={changeHeader ? "w-full fixed top-0 left-0 shadow-md z-50" : "w-full fixed top-0 left-0 z-50"}>
-            <nav className="md:flex items-center justify-between bg-white py-4 xl:px-52 md:px-20 px-7">
+        <header className={changeHeader ? "bg-white w-full fixed top-0 left-0 shadow-md z-50" : "bg-white w-full fixed top-0 left-0 z-50"}>
+            <nav className="max-w-screen-xl md:flex items-center justify-between py-4 bg-white mx-auto px-6">
                 <div>
                     <a className="cursor-pointer" href="/">
                         <img className="h-12" src={logo} alt="logo" />
@@ -41,15 +42,23 @@ function Header() {
                     }`}
                 >
                     <li className="md:ml-8 text-lg md:my-0 my-7">
-                        <a
-                            className="relative hover:text-rose-600 duration-500"
-                            href="/cart"
+                        
+                    {cart.length > 0 ?
+                        <span
+                            className="relative hover:text-rose-600 duration-500 cursor-pointer"
+                            onClick={() => { hideAll(); setShowCheckout(true) }}
                         >
-                            <span className="bg-primary w-4 h-4 p-2.5 text-xs rounded-full flex items-center justify-center text-white poppins absolute md:-right-3 md:-top-2 left-5 -top-1.5">
-                                5
-                            </span>
+                            {cart.length > 0 &&
+                                <span className="bg-primary w-4 h-4 p-2.5 text-xs rounded-full flex items-center justify-center text-white poppins absolute md:-right-3 md:-top-2 left-5 -top-1.5">
+                                    {cart.length}
+                                </span>
+                            } 
                             <ShoppingCartIcon className="h-5 w-5 text-slate-900" />
-                        </a>
+                        </span>
+                        :
+                            <ShoppingCartIcon className="h-5 w-5 text-slate-900" />
+                        }
+                        
                     </li>
 
                     <li className="md:ml-10 text-lg md:my-0 my-7">

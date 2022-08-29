@@ -123,7 +123,7 @@ function Authentications() {
                     )}
 
                     <button
-                        className="p-5 border-none bg-primary text-[15px] text-white rounded cursor-pointer hover:bg-rose-500 transition duration-500"
+                        className="p-5 border-none bg-primary text-[15px] text-white rounded cursor-pointer hover:bg-primary transition duration-500"
                         type="submit"
                     >
                         {newUser ? 'Sign Up' : 'Login'}
